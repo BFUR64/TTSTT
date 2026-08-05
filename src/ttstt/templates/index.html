@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTSTT</title>
+    <link rel="stylesheet" href="/static/css/general.css">
+    <link rel="stylesheet" href="/static/css/toast.css">
+    <link rel="stylesheet" href="/static/css/container.css">
+    <link rel="stylesheet" href="/static/css/top-bar.css">
+    <link rel="stylesheet" href="/static/css/action-row.css">
+    <link rel="stylesheet" href="/static/css/text-area.css">
+    <link rel="stylesheet" href="/static/css/controls-row.css">
+    <link rel="stylesheet" href="/static/css/media-player.css">
+    <link rel="stylesheet" href="/static/css/sentence-row.css">
+    <link rel="stylesheet" href="/static/css/state.css">
+</head>
+<body>
+
+<div class="is-hidden" id="toast">
+    <div class="toast-text-container">
+        <span id="toast-text-box">Something went wrong!</span>
+    </div>
+    <button id="toastButton">
+        <svg viewBox="0 0 24 24">
+            <path d="M6.707 5.293l5.293 5.292l5.293 -5.292a1 1 0 0 1 1.414 1.414l-5.292 5.293l5.292 5.293a1 1 0 0 1 -1.414 1.414l-5.293 -5.292l-5.293 5.292a1 1 0 1 1 -1.414 -1.414l5.292 -5.293l-5.292 -5.293a1 1 0 0 1 1.414 -1.414" />
+        </svg>
+    </button>
+</div>
+
+<div class="container">
+    <div class="top-bar">
+        <span class="title">TTSTT</span>
+        <div class="volume-group">
+            <button id="volumeButton" aria-label="Volume Button">
+                <svg
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="no-fill"
+                >
+                    <path d="M15 8a5 5 0 0 1 0 8" />
+                    <path d="M17.7 5a9 9 0 0 1 0 14" />
+                    <path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
+                </svg>
+            </button>
+
+            <div class="slider-group">
+                <label for="volumeInput" class="screen-reader">Volume number</label>
+                <input type="number" id="volumeInput" />
+                <label for="volumeSlider" class="screen-reader">Volume slider</label>
+                <input type="range" id="volumeSlider" />
+            </div>
+        </div>
+    </div>
+
+    <div class="action-row">
+        <button disabled id="clearButton" aria-label="Clear text">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 6a1 1 0 0 1 .117 1.993l-.117 .007h-.081l-.919 11a3 3 0 0 1 -2.824 2.995l-.176 .005h-8c-1.598 0 -2.904 -1.249 -2.992 -2.75l-.005 -.167l-.923 -11.083h-.08a1 1 0 0 1 -.117 -1.993l.117 -.007zm-10 4a1 1 0 0 0 -1 1v6a1 1 0 0 0 2 0v-6a1 1 0 0 0 -1 -1m4 0a1 1 0 0 0 -1 1v6a1 1 0 0 0 2 0v-6a1 1 0 0 0 -1 -1" />
+                <path d="M14 2a2 2 0 0 1 2 2a1 1 0 0 1 -1.993 .117l-.007 -.117h-4l-.007 .117a1 1 0 0 1 -1.993 -.117a2 2 0 0 1 1.85 -1.995l.15 -.005z" />
+            </svg>
+        </button>
+
+        <label for="voiceSelect" class="screen-reader">Voice select</label>
+        <select id="voiceSelect"></select>
+
+        <button disabled id="copyButton" aria-label="Copy text">
+            <svg viewBox="0 0 24 24">
+                <path d="M17.997 4.17a3 3 0 0 1 2.003 2.83v12a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-12a3 3 0 0 1 2.003 -2.83a4 4 0 0 0 3.997 3.83h4a4 4 0 0 0 3.98 -3.597zm-8.987 10.83h-.01a1 1 0 0 0 -.117 1.993l.127 .007a1 1 0 0 0 0 -2m5.99 0h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 0 -2m-5.99 -4h-.01a1 1 0 0 0 -.117 1.993l.127 .007a1 1 0 0 0 0 -2m5.99 0h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 0 -2m-1 -9a2 2 0 1 1 0 4h-4a2 2 0 1 1 0 -4z" />
+            </svg>
+        </button>
+    </div>
+
+    <label for="textInput" class="screen-reader">Text to speak</label>
+    <textarea id="textInput" placeholder="Paste or type your text here…"></textarea>
+
+    <div class="controls">
+        <div class="speak-cancel-group">
+            <button id="speakButton">Speak</button>
+
+            <button disabled id="cancelButton">Cancel</button>
+        </div>
+
+        <button id="recordButton" aria-label="Record voice">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 9a1 1 0 0 1 1 1a8 8 0 0 1 -6.999 7.938l-.001 2.062h3a1 1 0 0 1 0 2h-8a1 1 0 0 1 0 -2h3v-2.062a8 8 0 0 1 -7 -7.938a1 1 0 1 1 2 0a6 6 0 0 0 12 0a1 1 0 0 1 1 -1m-7 -8a4 4 0 0 1 4 4v5a4 4 0 1 1 -8 0v-5a4 4 0 0 1 4 -4" />
+            </svg>
+        </button>
+    </div>
+
+    <div id="errorMessage"></div>
+
+    <div class="media-player">
+        <span class="is-disabled" id="chunkCounter">- / -</span>
+        <div class="player-controls">
+            <button disabled id="previousButton" aria-label="Previous">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19.496 4.136l-12 7a1 1 0 0 0 0 1.728l12 7a1 1 0 0 0 1.504 -.864v-14a1 1 0 0 0 -1.504 -.864z" />
+                    <path d="M4 4a1 1 0 0 1 .993 .883l.007 .117v14a1 1 0 0 1 -1.993 .117l-.007 -.117v-14a1 1 0 0 1 1 -1z" />
+                </svg>
+            </button>
+            <button disabled id="playButton" aria-label="Pause/Resume">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z" />
+                </svg>
+            </button>
+            <button disabled id="nextButton" aria-label="Next">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 5v14a1 1 0 0 0 1.504 .864l12 -7a1 1 0 0 0 0 -1.728l-12 -7a1 1 0 0 0 -1.504 .864z" />
+                    <path d="M20 4a1 1 0 0 1 .993 .883l.007 .117v14a1 1 0 0 1 -1.993 .117l-.007 -.117v-14a1 1 0 0 1 1 -1z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <span class="is-disabled" id="current-sentence">No sentence playing</span>
+</div>
+<script type="module" src="/static/js/app.js"></script>
+</body>
+</html>

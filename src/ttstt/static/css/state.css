@@ -1,0 +1,24 @@
+.is-disabled, button:disabled {
+    opacity: 0.5;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+.is-hidden {
+    z-index: -5;
+    opacity: 0;
+}
+
+.no-fill path {
+    fill: none;
+}
+
+.is-error {
+    background: var(--danger);
+}
+
+.is-information {
+    background: var(--surface-3);
+}

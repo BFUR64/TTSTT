@@ -1,0 +1,17 @@
+[project]
+name = "ttstt"
+version = "0.1.0"
+description = "Text-to-speech and speech-to-text web application"
+requires-python = ">=3.11,<3.12"
+
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "jinja2",
+    "pydub",
+    "piper-tts"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

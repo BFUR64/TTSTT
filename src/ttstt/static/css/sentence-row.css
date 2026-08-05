@@ -1,0 +1,10 @@
+#current-sentence {
+    display: block;
+    height: 5rem;
+    padding: 0.5rem;
+
+    background: var(--surface-3);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}

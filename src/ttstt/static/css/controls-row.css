@@ -1,0 +1,53 @@
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.controls .speak-cancel-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.controls button {
+    height: 2.5rem;
+    min-width: 2.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--active);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+.controls .speak-cancel-group button {
+    height: 2.5rem;
+    width: 8rem;
+}
+
+@media (max-width: 600px) {
+    .controls {
+        gap: 1rem;
+    }
+
+    .controls .speak-cancel-group {
+        flex-grow: 1;
+    }
+
+    .controls .speak-cancel-group button {
+        flex-grow: 1;
+    }
+}
+
+@media (max-width: 360px) {
+    .controls .speak-cancel-group {
+        flex-direction: column;
+    }
+
+    .controls .speak-cancel-group button {
+        width: 100%;
+    }
+}

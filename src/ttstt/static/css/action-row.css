@@ -1,0 +1,42 @@
+.action-row {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.action-row button {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--active);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+.action-row svg path {
+    color: var(--text);
+}
+
+.action-row select {
+    flex-grow: 1;
+    height: 2rem;
+
+    background: var(--active);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .action-row {
+        gap: 1rem;
+    }
+}

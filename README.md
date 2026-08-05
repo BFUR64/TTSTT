@@ -1,0 +1,1 @@
+py -3.11 -m uvicorn src.ttstt.main:app --reload

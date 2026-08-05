@@ -1,0 +1,8 @@
+# IDEA files
+.idea
+
+# Python cache
+__pycache__
+
+# Do not include models
+model

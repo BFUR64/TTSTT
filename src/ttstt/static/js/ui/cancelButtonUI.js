@@ -1,6 +1,6 @@
 // @ts-check
 
-import * as transcriberController from "../controller/transcriberController.js";
+import * as transcriberService from "../services/transcriberService.js";
 import { Events } from "../events.js";
 
 /**
@@ -8,7 +8,7 @@ import { Events } from "../events.js";
  */
 export function initCancelButtonUI(cancelButton) {
     cancelButton.addEventListener('click', () => {
-        transcriberController.cancelUpload();
+        transcriberService.cancelUpload();
     })
 
     document.addEventListener(Events.TRANSCRIBER_IDLE, () => {

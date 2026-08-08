@@ -1,7 +1,8 @@
 // @ts-check
 
-import * as transcriberController from "../controller/transcriberController.js";
 import { Events } from "../events.js";
+
+import * as transcriberService from "../services/transcriberService.js";
 
 /** @type {string} */
 const uploading = `
@@ -29,7 +30,7 @@ const uploading = `
  */
 export function initSpeakButtonUI(initSpeakButtonUI) {
     initSpeakButtonUI.addEventListener('click', () => {
-        transcriberController.generateVoice();
+        transcriberService.generateVoice();
     })
 
     document.addEventListener(Events.TRANSCRIBER_IDLE, () => {

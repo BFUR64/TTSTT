@@ -6,3 +6,6 @@ __pycache__
 
 # Do not include models
 model
+
+# Do not incldue the svg folder
+icons

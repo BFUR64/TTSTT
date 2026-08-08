@@ -73,7 +73,7 @@ async function uploadText() {
     }
 
     if (!response.ok) {
-        throw new Error(`Upload failed: ${response.status}`);
+        throw new Error(`Upload failed ${response.status}: ${response.body}`);
     }
 
     const sampleRate = Number(response.headers.get("X-Sample-Rate"));
